@@ -1,0 +1,96 @@
+#--  Synopsys, Inc.
+#--  Version L-2016.09L+ice40
+#--  Written on Sat Oct 14 15:04:01 2017
+
+
+#project files
+
+
+
+add_file -verilog -lib work "../source/upduino_top.v" 
+add_file -verilog -lib work "../source/GPU/cfg_ctrl.v" 
+add_file -verilog -lib work "../source/GPU/colorbar_gen.v" 
+add_file -verilog -lib work "../source/GPU/dpram.v" 
+add_file -verilog -lib work "../source/GPU/drawcircle.v" 
+add_file -verilog -lib work "../source/GPU/drawline.v" 
+add_file -verilog -lib work "../source/GPU/fillcircle.v" 
+add_file -verilog -lib work "../source/GPU/filltriangle.v" 
+add_file -verilog -lib work "../source/GPU/generic_fifo_lfsr.v" 
+add_file -verilog -lib work "../source/GPU/drawbitmap.v" 
+add_file -verilog -lib work "../source/GPU/ebr_bm_mem.v" 
+add_file -verilog -lib work "../source/GPU/drawfont.v" 
+add_file -verilog -lib work "../source/GPU/ebr_font_mem.v" 
+add_file -verilog -lib work "../source/MIPI/byte_packetizer.v" 
+add_file -verilog -lib work "../source/MIPI/compiler_directives.v" 
+add_file -verilog -lib work "../source/MIPI/dphy_tx_inst.v" 
+add_file -verilog -lib work "../source/MIPI/LP_HS_dly_ctrl.v" 
+add_file -verilog -lib work "../source/MIPI/packetheader.v" 
+add_file -verilog -lib work "../source/MIPI/parallel2byte_RGB888_lane1.v" 
+add_file -verilog -lib work "../source/MIPI/pmi_fifo_dc.v" 
+add_file -verilog -lib work "../source/MIPI/qspi.v" 
+add_file -verilog -lib work "../source/MIPI/top.v" 
+add_file -verilog -lib work "../source/UART/uart_ir_tx_ice.v" 
+add_file -verilog -lib work "../source/UART/uart_rx.v" 
+add_file -verilog -lib work "../source/UART/uart_rx_fsm.v" 
+add_file -verilog -lib work "../source/UART/uart_tx.v" 
+add_file -verilog -lib work "../source/UART/uart_tx_fsm.v" 
+#implementation: "project_Implmnt"
+impl -add project_Implmnt -type fpga
+
+#
+#implementation attributes
+
+set_option -vlog_std v2001
+set_option -project_relative_includes 1
+
+#device options
+set_option -technology SBTiCE40UP
+set_option -part iCE40UP5K
+set_option -package SG48
+set_option -speed_grade 
+set_option -part_companion ""
+
+#compilation/mapping options
+set_option -top_module "upduino_top"
+
+# hdl_compiler_options
+set_option -distributed_compile 0
+
+# mapper_without_write_options
+set_option -frequency auto
+set_option -srs_instrumentation 1
+
+# mapper_options
+set_option -write_verilog 0
+set_option -write_vhdl 0
+
+# Lattice iCE40UP
+set_option -maxfan 10000
+set_option -rw_check_on_ram 0
+set_option -disable_io_insertion 1
+set_option -pipe 1
+set_option -retiming 1
+set_option -update_models_cp 0
+set_option -fix_gated_and_generated_clocks 0
+set_option -run_prop_extract 1
+
+# NFilter
+set_option -no_sequential_opt 0
+
+# sequential_optimization_options
+set_option -symbolic_fsm_compiler 1
+
+# Compiler Options
+set_option -compiler_compatible 0
+set_option -resource_sharing 1
+
+# Compiler Options
+set_option -auto_infer_blackbox 0
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 1
+
+#set result format/file last
+project -result_file "project_Implmnt/project.edf"
+impl -active project_Implmnt
+project -run synthesis -clean

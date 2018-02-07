@@ -1,0 +1,30 @@
+# ##############################################################################
+
+# iCEcube PCF
+
+# Version:            2017.01.27914
+
+# File Generated:     Sep 22 2017 14:06:19
+
+# Family & Device:    iCE40UP5K
+
+# Package:            SG48
+
+# ##############################################################################
+
+###IOSet List 14
+set_io LPCLK[1] 31
+set_io b_sync_o 2
+set_io uart_tx 12
+set_io D0_P 27 -io_std SB_LVCMOS -pullup no
+set_io DCK_P 37 -io_std SB_LVCMOS -pullup no
+set_io LP0[1] 26 -io_std SB_LVCMOS -pullup no
+set_io LPCLK[0] 35
+set_io LP0[0] 25 -io_std SB_LVCMOS -pullup no
+set_io clk_o0 3
+set_io uart_rx 21
+set_io D0_N 23 -io_std SB_LVCMOS -pullup no
+set_io DCK_N 32 -io_std SB_LVCMOS -pullup no
+set_io b_sync 36
+set_io clk_o1 4
+
