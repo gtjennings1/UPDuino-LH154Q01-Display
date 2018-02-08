@@ -1,4 +1,4 @@
 # UPDuino-LH154Q01-Display
 Design to connect Lattice Ultraplus FPGA to LH154Q01 Display
 
-UPDuino is an ultra low cost FPGA development and prototyping board.  The OV7670 Camera Module is an ultra low cost VGA camera module traditionally used for maker projects.  The UPDuino OV7670 Camera Module Adapter Board connects a OV7670 camera module to a UPDuino v2.0 board.  This page provide details on the hardware and software necessary to connect the OV7670 Camera module and an Arduino to a UPDuino board and stream image data from the Ultraplus FPGA frame buffer to a computer via UART.  The image data can then be copied into a file and be viewed as a bitmap.
+UPDuino is a small maker board with a Lattice Ultraplus mobile FPGA.  The UPDuino LH154 Display Adapter Board provides the ability to attach a small 240x240 24-bit RGB display that has been used for many electronic devices including the iPod Nano (6th generation).  The FPGA can be used as a small graphics processor to deliver interactive graphics, bitmaps, fonts/text on the display.
